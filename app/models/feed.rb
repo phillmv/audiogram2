@@ -2,7 +2,7 @@ class Feed < ActiveRecord::Base
   # attr_accessible :title, :body
   IMG_COUNT = 40
 #  DEFAULT_TAGS = ["paris", "edbanger", "justice", "daftpunk", "uffie", "gainsbourg", "air", "m83", "kavinsky", "yelle", "cassius", "sebastiAn", "busyp", "oizo"]
-  DEFAULT_TAGS = ["japan", "tokyo", "samurai", "sushi", "sword", "geisha", "bladerunner", "fight", "robot", "kurosawa", "manga"]
+  DEFAULT_TAGS = ["japan", "tokyo", "samurai", "sushi", "sword", "geisha", "bladerunner", "katana", "robot", "kurosawa", "manga"]
 
   CALLBACK_URL = "http://localhost:4567/oauth/callback"
 

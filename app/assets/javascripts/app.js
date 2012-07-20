@@ -92,11 +92,9 @@ function draw(){
   {
 
     var html = ""
-    if ($new_tag.length > 0)
-    {
-      for(var i = ($new_tag.length - 1); i >= 0; i--)
-      {
-	$images.splice(0, 0, $new_tag[i]);
+    if ($new_tag.length > 0) {
+      for(var i = ($new_tag.length - 1); i >= 0; i--) {
+        $images.splice(0, 0, $new_tag[i]);
       }
 
       $new_tag = [];
@@ -113,15 +111,14 @@ function draw(){
     $counter++;
     new_items.imagesLoaded(function() {
 
-	$container.prepend(new_items).isotope( 'reloadItems').isotope({ sortBy: 'original-order', gutterWidth: 10 });
-	if ($loaded_img.length > $MAX_SIZE)
-	{
-	  $("#container" + $loaded_img.shift()).remove();
-	}
+      $container.prepend(new_items).isotope( 'reloadItems').isotope({ sortBy: 'original-order', gutterWidth: 10 });
+      if ($loaded_img.length > $MAX_SIZE) {
+        $("#container" + $loaded_img.shift()).remove();
+      }
 
-	setTimeout("draw()", 1000);
+      setTimeout("draw()", 1000);
 
-      });
+    });
   }
   else
   {
@@ -166,14 +163,18 @@ function draw_slides()
 function load_items(callback)
 {
   $.post("/moar", { next_id: $next_id, tags: $tags }, function(data) {
-      $next_id = data[0]
+    $next_id = data[0]
 
-      $images = $images.concat(data[1]);
-      if(callback !== undefined)
-      {
-	callback();
-      }
-    }, 'json');
+    $images = $images.concat(data[1]);
+
+    // every five draw events or so add another prev pic
+    if((Math.ceil(Math.random() * 100) % 3) == 0){
+      inject_prev_tags()
+    }
+    if(callback !== undefined) {
+      callback();
+    }
+  }, 'json');
 
 }
 
@@ -211,6 +212,15 @@ function poll_tag(callback)
 
   });
   setTimeout("poll_tag()", 3000);
+}
+
+function inject_prev_tags(){
+  rand = Math.ceil(Math.random() * 1000) % $tagged_arr.length;
+  img = $tagged_arr[rand];
+
+  if(img !== undefined){
+    $images.push(img);
+  }
 }
 
 
