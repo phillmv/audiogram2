@@ -41,7 +41,7 @@
 
         </div>
 
-      <%= render partial: "step", locals: { opt: { id: "step-2", x: "10000", y: "0", z: "0", rotate: "0", scale: "3", posters: ["poster1.jpg", "poster2.jpg"] } } %>
+      <%= render partial: "step", locals: { opt: { id: "step-2", x: "10000", y: "0", z: "0", rotate: "0", scale: "3", posters: ["poster.png", "poster.png"] } } %>
 
 
       <%= render partial: "step", locals: { opt: { id: "step-3", x: "10000", y: "0", rotate: "0", rotate_y: "90", scale: "3" } } %>
@@ -50,10 +50,10 @@
       <%= render partial: "step", locals: { opt: { id: "step-4", x: "10000", y: "-3000", rotate_y: "90", scale: "3" } } %>
 
 
-      <%= render partial: "step", locals: { opt: { id: "step-5", x: "7000", y: "7000", rotate_y: "0", scale: "3", posters: [ "poster3.jpg" ] } } %>
+      <%= render partial: "step", locals: { opt: { id: "step-5", x: "7000", y: "7000", rotate_y: "0", scale: "3", posters: [ "postertag.png" ] } } %>
 
 
-      <%= render partial: "step", locals: { opt: { id: "left", x: "-6000", scale: "3", posters: [ "poster3.jpg", "poster2.jpg" ] } } %>
+      <%= render partial: "step", locals: { opt: { id: "left", x: "-6000", scale: "3", posters: [ "poster.png", nil ] } } %>
 
       <%= render partial: "step", locals: { opt: { id: "left-2", x: "-6000", rotate_y: "-90", scale: "3" } } %>
 
@@ -62,10 +62,10 @@
 
       <%= render partial: "step", locals: { opt: { id: "left-4", x: "-6000", y: "6000", rotate_y: "0", scale: "3" } } %>
 
-      <%= render partial: "step", locals: { opt: { id: "left-5", x: "-2000", y: "6000", rotate_y: "0", scale: "3", posters: [ "poster4.jpg", nil ] } } %>
+      <%= render partial: "step", locals: { opt: { id: "left-5", x: "-2000", y: "6000", rotate_y: "0", scale: "3", posters: [ "postertag.png", nil ] } } %>
 
 
-      <%= render partial: "step", locals: { opt: { id: "up", y: "-12000", scale: "3", posters: [ "poster4.jpg", "poster2.jpg" ] } } %>
+      <%= render partial: "step", locals: { opt: { id: "up", y: "-12000", scale: "3", posters: [ "poster.png", "poster.png" ] } } %>
 
       <%= render partial: "step", locals: { opt: { id: "up-2", y: "-15000", rotate_y: "90", scale: "2" } } %>
 

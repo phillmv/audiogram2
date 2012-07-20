@@ -135,32 +135,32 @@ function draw(){
 function draw_slides()
 {
   while ($to_display.length < 50)
-  {
-    for(var i = 0; i < $tagged_arr.length; i++)
     {
-      rand = Math.ceil(Math.random() * 10);
-      if(i < 20)
+      for(var i = 0; i < $tagged_arr.length; i++)
       {
-	if(rand > 4)
-	{
-	  $to_display.push($tagged_arr[i])
-	}
-      }
-      else
-      {
-	if(rand > 7)
-	{
-	  $to_display.push($tagged_arr[i])
-	}
+        rand = Math.ceil(Math.random() * 10);
+        if(i < 20)
+          {
+            if(rand > 4)
+              {
+                $to_display.push($tagged_arr[i])
+              }
+          }
+          else
+            {
+              if(rand > 7)
+                {
+                  $to_display.push($tagged_arr[i])
+                }
+            }
       }
     }
-  }
 
-  $(".dyn_img").each(function(i, elem) { 
+    $(".dyn_img").each(function(i, elem) { 
       $(elem).html("<img src='" + $to_display.shift() + "' />");
     });
 
-  setTimeout("draw_slides()", 10000);
+    setTimeout("draw_slides()", 10000);
 }
 
 function load_items(callback)
@@ -180,43 +180,36 @@ function load_items(callback)
 function poll_tag(callback)
 {
   $.getJSON("/tagged", function(data) {
-      if(data != ""){
+    if(data != "" && data !== null){
 
-	for(var i in data) 
-	{
-	  if ($tagged_hsh[i] === undefined)
-	  {
-	    $tagged_hsh[i] = data[i]
-	    if(!$FIRST_RUN)
-	    {
-	      $new_tag.push(data[i]);
-	    }
-	  }
-	}
-
-	var arr = []
-	for(var tstamp in $tagged_hsh)
-	{
-	  arr.push(tstamp);
-	}
-
-	arr = arr.sort();
-	$tagged_arr = []
-	for(var i = (arr.length - 1); i >= 0; i--){
-	  $tagged_arr.push($tagged_hsh[arr[i]])
-	}
-
-	$FIRST_RUN = false;
-
-	if(callback !== undefined)
-	{
-	  callback();
-	}
-
-
+      for(var i in data) {
+        if ($tagged_hsh[i] === undefined) {
+          $tagged_hsh[i] = data[i]
+          if(!$FIRST_RUN) {
+            $new_tag.push(data[i]);
+          }
+        }
       }
 
-    });
+      var arr = []
+      for(var tstamp in $tagged_hsh) {
+        arr.push(tstamp);
+      }
+
+      arr = arr.sort();
+      $tagged_arr = []
+      for(var i = (arr.length - 1); i >= 0; i--){
+        $tagged_arr.push($tagged_hsh[arr[i]])
+      }
+
+      $FIRST_RUN = false;
+
+      if(callback !== undefined) {
+        callback();
+      }
+    }
+
+  });
   setTimeout("poll_tag()", 3000);
 }
 
@@ -224,36 +217,31 @@ function poll_tag(callback)
 
 $(window).load(function(){
 
-    $("#tag").submit(function(e) {
-	e.preventDefault();
-	$tags = $("#tag_input").attr("value").split(" ");
+  $tags = $("#tag_input").attr("value").split(" ");
 
-	$("#question").remove();
+  $("#question").remove();
 
-	$(".step").each(function(i, elem) {
-	    $(elem).removeClass("hidden");
-	  });
-	
-	$jmp.jmpress();
-
-	$container.isotope(
-	  {
-	    itemSelector: '.item',
-	    gutterWidth: 10,
-	    animationEngine: 'css'
-	  }
-	);
-
-	load_items(draw);
-
-	poll_tag(draw_slides);
-
-	do_slides();
-
-      });
-    
-
+  $(".step").each(function(i, elem) {
+    $(elem).removeClass("hidden");
   });
+
+  $jmp.jmpress();
+
+  $container.isotope( {
+    itemSelector: '.item',
+    gutterWidth: 10,
+    animationEngine: 'css'
+  });
+
+  load_items(draw);
+
+  poll_tag(draw_slides);
+
+  do_slides();
+
+});
+
+
 
 function do_slides()
 {

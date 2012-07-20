@@ -58,13 +58,20 @@ class FeedController < ApplicationController
 
   def tagged
 
-    content = Feed.tag_recent_media("ouiparis")
+    tag_content = []
+    ["thronejs", "tojs", "throneofjs"].each do |word|
+      tag_content << Feed.tag_recent_media(word)
+    end
     hsh = {}
-    if !content.data.empty?
-      content.data.each { |dat| 
-        hsh[dat.caption.created_time] = dat.images.standard_resolution.url 
-      }
+    tag_content.each do |content|
+      if !content.data.empty?
+        content.data.each { |dat| 
+          hsh[dat.caption.created_time] = dat.images.standard_resolution.url 
+        }
+      end
+    end
 
+    if hsh.present?
       render :inline => hsh.to_json
     else
       render :inline => ""
