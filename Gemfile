@@ -7,6 +7,7 @@ gem 'rails', '3.2.6'
 
 gem 'instagram'
 gem 'pry-rails'
+gem 'pg'
 
 
 # Gems used only for assets and not required
