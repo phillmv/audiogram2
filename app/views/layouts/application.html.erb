@@ -1,403 +1,100 @@
 <!doctype html>
 <html class="no-js" lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-
-		<title>Audiogram</title>
-		<meta name="description" content="">
-		<meta name="author" content="">
-
-		<meta name="viewport" content="width=device-width,initial-scale=1">
-
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-        <%= stylesheet_link_tag "application" %>
-        <%= javascript_include_tag "application" %>
-	</head>
-	<body>
-
-		<div id="container">
-			<header>
-
-			</header>
-		
-			<div id="jmpress">
-
-				<div id="question">
-					<h1>Hey.</h1>
-					<h1>Pick some tags to populate the stream with.</h1>
-					<h1>Don't use #s.</h1>
-					<form id="tag" action="" method="GET">
-						<input id="tag_input" type="text" class="default-value">
-						<input type="submit" value="Go">
-					</form>
-				</div>
-
-				<div class="step hidden" id="home" data-x="1000" data-y="0" data-rotate="0" data-scale="3">
-					<div id="main" role="main">
-						<%= yield %>
-
-					</div>
-
-				</div>
-				<div class="step hidden" id="step-2" data-x="10000" data-y="0" data-z="0" data-rotate="0" data-scale="3">
-					<div class="tagged">
-						<div class="left_tag">
-							<img class="poster" src="/assets/poster1.jpg" />
-						</div>
-						<div class="right_tag">
-							<img class="poster" src="/assets/poster2.jpg" />
-						</div>
-					</div>
-				</div>
-
-				<div class="step hidden" id="step-3" data-x="10000" data-y="0" data-rotate-y="90" data-rotate="0" data-scale="3">
-					<div class="tagged">
-						<div class="left_tag">
-							<div class="transperancy">
-								<img src="/assets/transperancy.png"/>
-							</div>
-							<div class="dyn_img">
-							</div>
-						</div>
-
-						<div class="right_tag">
-							<div class="transperancy">
-								<img src="/assets/transperancy.png"/>
-							</div>
-							<div class="dyn_img">
-							</div>
-
-						</div>
-					</div>
-
-				</div>
-
-
-				<div class="step hidden" id="step-4" data-x="10000" data-y="-3000" data-rotate-y="90" data-scale="3">
-					<div class="tagged">
-						<div class="left_tag">
-							<div class="transperancy">
-								<img src="/assets/transperancy.png"/>
-							</div>
-							<div class="dyn_img">
-							</div>
-
-						</div>
-						<div class="right_tag">
-							<div class="transperancy">
-								<img src="/assets/transperancy.png"/>
-							</div>
-							<div class="dyn_img">
-							</div>
-
-						</div>
-					</div>
-
-				</div>
-
-
-				<div class="step hidden" id="step-5" data-x="7000" data-y="-3000" data-rotate-y="0" data-scale="3">
-					<div class="tagged">
-						<div class="left_tag">
-							<img class="poster" src="/assets/poster3.jpg" />
-						</div>
-						<div class="right_tag">
-							<div class="transperancy">
-								<img src="/assets/transperancy.png"/>
-							</div>
-							<div class="dyn_img">
-							</div>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-						</div>
-					</div>
-
-				</div>
-
-
-				<div class="step hidden" id="left" data-x="-6000" data-scale="3">
+    <title>Audiogram</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-					<div class="tagged">
-						<div class="left_tag">
-							<img class="poster" src="/assets/poster3.jpg" />
-						</div>
-						<div class="right_tag">
-							<img class="poster" src="/assets/poster2.jpg" />
-						</div>
-					</div>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
 
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <%= stylesheet_link_tag "application" %>
+    <%= javascript_include_tag "application" %>
+  </head>
+  <body>
 
-				</div>
+    <div id="container">
+      <header>
 
+      </header>
 
+      <div id="jmpress">
 
-				<div class="step hidden" id="left-2" data-x="-6000" data-rotate-y="-90" data-scale="3">
+        <div id="question">
+          <h1>Hey.</h1>
+          <h1>Pick some tags to populate the stream with.</h1>
+          <h1>Don't use #s.</h1>
+          <form id="tag" action="" method="GET">
+            <input id="tag_input" type="text" class="default-value">
+            <input type="submit" value="Go">
+          </form>
+        </div>
 
-					<div class="tagged">
-						<div class="left_tag">
-							<div class="transperancy">
-								<img src="/assets/transperancy.png"/>
-							</div>
-							<div class="dyn_img">
-							</div>
-						</div>
+        <div class="step hidden" id="home" data-x="1000" data-y="0" data-rotate="0" data-scale="3">
+          <div id="main" role="main">
+            <%= yield %>
 
-						<div class="right_tag">
-							<div class="transperancy">
-								<img src="/assets/transperancy.png"/>
-							</div>
-							<div class="dyn_img">
-							</div>
+          </div>
 
-						</div>
-					</div>
+        </div>
 
-				</div>
+      <%= render partial: "step", locals: { opt: { id: "step-2", x: "10000", y: "0", z: "0", rotate: "0", scale: "3", posters: ["poster1.jpg", "poster2.jpg"] } } %>
 
 
-				<div class="step hidden" id="left-3" data-x="-6000" data-y="6000" data-rotate-y="-90" data-scale="3">
-					<div class="tagged">
-						<div class="left_tag">
-							<div class="transperancy">
-								<img src="/assets/transperancy.png"/>
-							</div>
-							<div class="dyn_img">
-							</div>
-						</div>
+      <%= render partial: "step", locals: { opt: { id: "step-3", x: "10000", y: "0", rotate: "0", rotate_y: "90", scale: "3" } } %>
 
-						<div class="right_tag">
-							<div class="transperancy">
-								<img src="/assets/transperancy.png"/>
-							</div>
-							<div class="dyn_img">
-							</div>
 
-						</div>
-					</div>
+      <%= render partial: "step", locals: { opt: { id: "step-4", x: "10000", y: "-3000", rotate_y: "90", scale: "3" } } %>
 
 
-				</div>
+      <%= render partial: "step", locals: { opt: { id: "step-5", x: "7000", y: "7000", rotate_y: "0", scale: "3", posters: [ "poster3.jpg" ] } } %>
 
 
-					<div class="step hidden" id="left-4" data-x="-6000" data-y="6000" data-rotate-y="0" data-scale="3">
-					<div class="tagged">
-						<div class="left_tag">
-							<div class="transperancy">
-								<img src="/assets/transperancy.png"/>
-							</div>
-							<div class="dyn_img">
-							</div>
-						</div>
+      <%= render partial: "step", locals: { opt: { id: "left", x: "-6000", scale: "3", posters: [ "poster3.jpg", "poster2.jpg" ] } } %>
 
-						<div class="right_tag">
-							<div class="transperancy">
-								<img src="/assets/transperancy.png"/>
-							</div>
-							<div class="dyn_img">
-							</div>
+      <%= render partial: "step", locals: { opt: { id: "left-2", x: "-6000", rotate_y: "-90", scale: "3" } } %>
 
-						</div>
-					</div>
+      <%= render partial: "step", locals: { opt: { id: "left-3", x: "-6000", y: "6000", rotate_y: "-90", scale: "3" } } %>
 
 
-				</div>
+      <%= render partial: "step", locals: { opt: { id: "left-4", x: "-6000", y: "6000", rotate_y: "0", scale: "3" } } %>
 
-				<div class="step hidden" id="left-5" data-x="-2000" data-y="6000" data-rotate-y="0" data-scale="3">
-					<div class="tagged">
-						<div class="left_tag">
-							<div class="transperancy">
-								<img src="/assets/transperancy.png"/>
-							</div>
-							<div class="dyn_img">
-							</div>
-						</div>
+      <%= render partial: "step", locals: { opt: { id: "left-5", x: "-2000", y: "6000", rotate_y: "0", scale: "3", posters: [ "poster4.jpg", nil ] } } %>
 
-						<div class="right_tag">
-							<img class="poster" src="/assets/poster4.jpg" />
 
-						</div>
-					</div>
+      <%= render partial: "step", locals: { opt: { id: "up", y: "-12000", scale: "3", posters: [ "poster4.jpg", "poster2.jpg" ] } } %>
 
+      <%= render partial: "step", locals: { opt: { id: "up-2", y: "-15000", rotate_y: "90", scale: "2" } } %>
 
-				</div>
+      <%= render partial: "step", locals: { opt: { id: "up-3", y: "-18000", x: "-4000", rotate_y: "180", scale: "1" } } %>
 
+      <%= render partial: "step", locals: { opt: { id: "up-4", y: "-18000", x: "-7000", rotate_y: "180", scale: "2" } } %>
 
 
-				<div class="step hidden" id="up" data-y="-12000" data-scale="3">
+      <%= render partial: "step", locals: { opt: { id: "up-5", y: "-15000", x: "-7000", rotate_y: "180", scale: "2" } } %>
 
-					<div class="tagged">
-						<div class="left_tag">
-							<img class="poster" src="/assets/poster4.jpg" />
-						</div>
-						<div class="right_tag">
-							<img class="poster" src="/assets/poster2.jpg" />
-						</div>
-					</div>
+      <%= render partial: "step", locals: { opt: { id: "up-6", y: "-15000", x: "-4000", rotate_y: "90", scale: "2" } } %>
 
+      <%= render partial: "step", locals: { opt: { id: "up-7", y: "-12000", x: "-4000", scale: "3" } } %>
 
-				</div>
 
 
-				<div class="step hidden" id="up-2" data-y="-15000" data-rotate-y="90" data-scale="2">
-					<div class="tagged">
-						<div class="left_tag">
-							<div class="transperancy">
-								<img src="/assets/transperancy.png"/>
-							</div>
-							<div class="dyn_img">
-							</div>
-						</div>
 
-						<div class="right_tag">
 
-							<div class="transperancy">
-								<img src="/assets/transperancy.png"/>
-							</div>
-							<div class="dyn_img">
-							</div>
+    </div> <!--! end of #container -->
 
-
-						</div>
-					</div>
-				</div>
-
-
-				<div class="step hidden" id="up-3" data-y="-18000" data-x="-4000" data-rotate-y="180" data-scale="1">
-					<div class="tagged">
-						<div class="left_tag">
-							<div class="transperancy">
-								<img src="/assets/transperancy.png"/>
-							</div>
-							<div class="dyn_img">
-							</div>
-						</div>
-
-						<div class="right_tag">
-
-							<div class="transperancy">
-								<img src="/assets/transperancy.png"/>
-							</div>
-							<div class="dyn_img">
-							</div>
-
-
-						</div>
-					</div>
-				</div>
-
-
-				<div class="step hidden" id="up-4" data-y="-18000" data-x="-7000" data-rotate-y="180" data-scale="2">
-					<div class="tagged">
-						<div class="left_tag">
-							<div class="transperancy">
-								<img src="/assets/transperancy.png"/>
-							</div>
-							<div class="dyn_img">
-							</div>
-						</div>
-
-						<div class="right_tag">
-
-							<div class="transperancy">
-								<img src="/assets/transperancy.png"/>
-							</div>
-							<div class="dyn_img">
-							</div>
-
-
-						</div>
-					</div>
-				</div>
-
-
-				<div class="step hidden" id="up-5" data-y="-15000" data-x="-7000" data-rotate-y="180" data-scale="2">
-					<div class="tagged">
-						<div class="left_tag">
-							<div class="transperancy">
-								<img src="/assets/transperancy.png"/>
-							</div>
-							<div class="dyn_img">
-							</div>
-						</div>
-
-						<div class="right_tag">
-
-							<div class="transperancy">
-								<img src="/assets/transperancy.png"/>
-							</div>
-							<div class="dyn_img">
-							</div>
-
-
-						</div>
-					</div>
-				</div>
-
-
-				<div class="step hidden" id="up-6" data-y="-15000" data-x="-4000" data-rotate-y="90" data-scale="2">
-					<div class="tagged">
-						<div class="left_tag">
-							<div class="transperancy">
-								<img src="/assets/transperancy.png"/>
-							</div>
-							<div class="dyn_img">
-							</div>
-						</div>
-
-						<div class="right_tag">
-
-							<div class="transperancy">
-								<img src="/assets/transperancy.png"/>
-							</div>
-							<div class="dyn_img">
-							</div>
-
-
-						</div>
-					</div>
-				</div>
-
-					<div class="step hidden" id="up-7" data-y="-12000" data-x="-4000" data-rotate-y="" data-scale="3">
-					<div class="tagged">
-						<div class="left_tag">
-							<div class="transperancy">
-								<img src="/assets/transperancy.png"/>
-							</div>
-							<div class="dyn_img">
-							</div>
-						</div>
-
-						<div class="right_tag">
-
-							<div class="transperancy">
-								<img src="/assets/transperancy.png"/>
-							</div>
-							<div class="dyn_img">
-							</div>
-
-
-						</div>
-					</div>
-				</div>
-
-
-
-
-
-
-
-
-		</div> <!--! end of #container -->
-
-        <%= javascript_include_tag "app" %>
-		<script>
-			window.jQuery || document.write('<script src="js/libs/jquery-1.7.1.min.js"><\/script>')
-			</script>
-			<script>
-				var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']]; // Change UA-XXXXX-X to be your site's ID
-				(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
-					g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-					s.parentNode.insertBefore(g,s)}(document,'script'));
-			</script>
-		</body>
-	</html>
+    <%= javascript_include_tag "app" %>
+    <script>
+      window.jQuery || document.write('<script src="js/libs/jquery-1.7.1.min.js"><\/script>')
+      </script>
+      <script>
+        var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']]; // Change UA-XXXXX-X to be your site's ID
+        (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
+          g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+          s.parentNode.insertBefore(g,s)}(document,'script'));
+      </script>
+    </body>
+  </html>

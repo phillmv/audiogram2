@@ -1,0 +1,13 @@
+<% opt[:posters] ||= [] %>
+
+<div class="step hidden" id="<%= opt[:id] %>" data-x="<%= opt[:x] %>" data-y="<%= opt[:y]%>" data-z="<%= opt[:z] %>" data-rotate="<%= opt[:rotate] %>" data-rotate-y="<%= opt[:rotate_y] %>" data-scale="<%= opt[:scale] %>">
+  <div class="tagged">
+    <div class="left_tag">
+      <%= render :partial => "poster", :locals => { :opt => opt } %>
+    </div>
+    <div class="right_tag">
+      <%= render :partial => "poster", :locals => { :opt => opt } %>
+    </div>
+  </div>
+</div>
+
