@@ -65,8 +65,8 @@ $FIRST_RUN = true;
 $tr_t = 3000;
 
 $tracks = [
-  [ ["#home", 60000], [ "#step-2", $tr_t], ["#step-3", $tr_t], ["#step-4", $tr_t], ["#step-5", $tr_t] ],
-  [ ["#home", 60000], [ "#left", $tr_t], ["#left-2", $tr_t], ["#left-3", $tr_t], ["#left-4", $tr_t], ["#left-5", $tr_t] ],
+  [ ["#home", 50000], [ "#step-2", $tr_t], ["#step-3", $tr_t], ["#step-4", $tr_t], ["#step-5", $tr_t] ],
+  [ ["#home", 50000], [ "#left", $tr_t], ["#left-2", $tr_t], ["#left-3", $tr_t], ["#left-4", $tr_t], ["#left-5", $tr_t] ],
   [ ["#home", 30000], ["#up", $tr_t], ["#up-2", $tr_t], ["#up-3", $tr_t], ["#up-4", $tr_t], ["#up-5", $tr_t], ["#up-6", $tr_t],  ["#up-7", $tr_t] ]
 ];
 
