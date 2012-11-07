@@ -4,10 +4,10 @@ class Feed < ActiveRecord::Base
 #  DEFAULT_TAGS = ["paris", "edbanger", "justice", "daftpunk", "uffie", "gainsbourg", "air", "m83", "kavinsky", "yelle", "cassius", "sebastiAn", "busyp", "oizo"]
   #DEFAULT_TAGS = ["japan", "tokyo", "samurai", "sushi", "sword", "geisha", "bladerunner", "katana", "robot", "kurosawa", "manga"]
   
-  DEFAULT_TAGS = [ "naturephotography", "musicphotography", "travelphotography", "extremesports", "jazzmusician", "opera", "politics", "documentary"]
+  DEFAULT_TAGS = [ "naturephotography", "musicphotography", "travelphotography", "extremesports", "jazzmusician", "opera", "cottagelife", "documentary"]
 
   #SEARCH_TAGS = ["thronejs", "tojs", "throneofjs"]
-  SEARCH_TAGS = [ "bamtest" ]
+  SEARCH_TAGS = [ "blueant", "blueantmedia", "bam" ]
 
   CALLBACK_URL = "http://localhost:4567/oauth/callback"
 
