@@ -13,8 +13,10 @@ class Feed < ActiveRecord::Base
 
   ACCESS_TOKEN = "229814.9b4ac62.277dd0a52a054ec49e4746a1e1a36d7f"
   Instagram.configure do |config|
-    config.client_id = "9b4ac6296f9a440588de3fc63c3063e1"
-    config.client_secret = "1bca67c52d9345db8573927f45b92aa6"
+    #config.client_id = "9b4ac6296f9a440588de3fc63c3063e1"
+    config.client_id = "822b668bc4ec470b9dc0c31cefcd9119"
+    #config.client_secret = "1bca67c52d9345db8573927f45b92aa6"
+    config.client_secret = "6326d6a8ead244d9ba6ff1df1fa5b6e6"
   end
 
   def self.tag_recent_media(tag = nil, max_id = nil)
@@ -35,7 +37,10 @@ class Feed < ActiveRecord::Base
     tag_content.each do |content|
       if !content.data.empty?
         content.data.each { |dat| 
-          hsh[dat.caption.created_time] = dat.images.standard_resolution.url 
+          begin
+          hsh[dat.created_time] = dat.images.standard_resolution.url 
+          rescue Exception => e
+          end
         }
       end
     end
