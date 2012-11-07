@@ -16,18 +16,8 @@ class FeedController < ApplicationController
 
   def moar
     @images = []
+    tags = Feed::DEFAULT_TAGS
 
-    tags = params[:tags]
-
-    if !tags.nil? && tags.first.empty?
-      tags = Feed::DEFAULT_TAGS
-    end
-
-    #  if tags.nil? || tags.empty?
-    #    @images = Instagram.media_popular.collect do |i| 
-    #      i.images.thumbnail.url
-    #    en
-    #  else
     content = []
 
     pagination = params[:next_id]
@@ -58,19 +48,7 @@ class FeedController < ApplicationController
 
   def tagged
 
-    tag_content = []
-    ["thronejs", "tojs", "throneofjs"].each do |word|
-      tag_content << Feed.tag_recent_media(word)
-    end
-    hsh = {}
-    tag_content.each do |content|
-      if !content.data.empty?
-        content.data.each { |dat| 
-          hsh[dat.caption.created_time] = dat.images.standard_resolution.url 
-        }
-      end
-    end
-
+    hsh = Feed.tagged
     if hsh.present?
       render :inline => hsh.to_json
     else

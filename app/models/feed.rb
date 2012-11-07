@@ -2,7 +2,12 @@ class Feed < ActiveRecord::Base
   # attr_accessible :title, :body
   IMG_COUNT = 40
 #  DEFAULT_TAGS = ["paris", "edbanger", "justice", "daftpunk", "uffie", "gainsbourg", "air", "m83", "kavinsky", "yelle", "cassius", "sebastiAn", "busyp", "oizo"]
-  DEFAULT_TAGS = ["japan", "tokyo", "samurai", "sushi", "sword", "geisha", "bladerunner", "katana", "robot", "kurosawa", "manga"]
+  #DEFAULT_TAGS = ["japan", "tokyo", "samurai", "sushi", "sword", "geisha", "bladerunner", "katana", "robot", "kurosawa", "manga"]
+  
+  DEFAULT_TAGS = [ "naturephotography", "musicphotography", "travelphotography", "extremesports", "jazzmusician", "opera", "politics", "documentary"]
+
+  #SEARCH_TAGS = ["thronejs", "tojs", "throneofjs"]
+  SEARCH_TAGS = [ "bamtest" ]
 
   CALLBACK_URL = "http://localhost:4567/oauth/callback"
 
@@ -18,5 +23,22 @@ class Feed < ActiveRecord::Base
     else
       Instagram.tag_recent_media(tag, :count => IMG_COUNT)
     end
+  end
+
+
+  def self.tagged
+    tag_content = []
+    Feed::SEARCH_TAGS.each do |word|
+      tag_content << Feed.tag_recent_media(word)
+    end
+    hsh = {}
+    tag_content.each do |content|
+      if !content.data.empty?
+        content.data.each { |dat| 
+          hsh[dat.caption.created_time] = dat.images.standard_resolution.url 
+        }
+      end
+    end
+    hsh
   end
 end
