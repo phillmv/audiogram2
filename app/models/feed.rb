@@ -1,16 +1,45 @@
-class Feed < ActiveRecord::Base
+class Feed 
   # attr_accessible :title, :body
 #  DEFAULT_TAGS = ["paris", "edbanger", "justice", "daftpunk", "uffie", "gainsbourg", "air", "m83", "kavinsky", "yelle", "cassius", "sebastiAn", "busyp", "oizo"]
   #DEFAULT_TAGS = ["japan", "tokyo", "samurai", "sushi", "sword", "geisha", "bladerunner", "katana", "robot", "kurosawa", "manga"]
   
-    #config.client_id = "9b4ac6296f9a440588de3fc63c3063e1"
-    #config.client_secret = "1bca67c52d9345db8573927f45b92aa6"
-  # ACCESS_TOKEN = "229814.9b4ac62.277dd0a52a054ec49e4746a1e1a36d7f"
-
   IMG_COUNT = 40
   CALLBACK_URL = "http://localhost:4567/oauth/callback"
 
+  attr_accessor :next_max, :images
+  def initialize(next_max, images)
+    @next_max = next_max
+    @images = images
+  end
 
+  def to_json
+    [self.next_max, self.images].to_json
+  end
+
+  def self.moar(next_id)
+    
+    content, images = [], []
+    next_max = {}
+    Feed::DEFAULT_TAGS.each do |tag|
+      if next_id.blank? || next_id[tag].blank?
+        tag_media = self.tag_recent_media(tag)
+      else
+        tag_media = self.tag_recent_media(tag, next_id[tag])
+      end
+      content << tag_media
+      next_max[tag] = tag_media.pagination.next_max_id
+    end
+
+    Feed::IMG_COUNT.times do |i|
+      content.each do |insta|
+        if !insta.data[i].blank?
+          images << insta.data[i].images.thumbnail.url
+        end
+      end
+    end
+
+    self.new(next_max, images)
+  end
   
 
   def self.tag_recent_media(tag = nil, max_id = nil)
