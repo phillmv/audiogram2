@@ -25,12 +25,11 @@
 
         <div id="question">
           <h1>Hey.</h1>
-          <h1>Pick some tags to populate the stream with.</h1>
-          <h1>Don't use #s.</h1>
-          <form id="tag" action="" method="GET">
+           <form id="tag" action="" method="GET">
             <input id="tag_input" type="text" class="default-value">
             <input type="submit" value="Go">
           </form>
+
         </div>
 
         <div class="step hidden" id="home" data-x="1000" data-y="0" data-rotate="0" data-scale="3">
@@ -41,44 +40,26 @@
 
         </div>
 
-      <%= render partial: "step", locals: { opt: { id: "step-2", x: "10000", y: "0", z: "0", rotate: "0", scale: "3", posters: ["poster1.png", "poster2.png"] } } %>
-
-
+      <%= render partial: "step", locals: { opt: { id: "step-2", x: "10000", y: "0", z: "0", rotate: "0",         scale: "3", posters: ["poster1.png", "poster1.png"] } } %>
       <%= render partial: "step", locals: { opt: { id: "step-3", x: "10000", y: "0", rotate: "0", rotate_y: "90", scale: "3" } } %>
+      <%= render partial: "step", locals: { opt: { id: "step-4", x: "10000", y: "-3000",     rotate_y: "90",      scale: "3" } } %>
+      <%= render partial: "step", locals: { opt: { id: "step-5", x: "7000", y: "7000",       rotate_y: "0",       scale: "3", posters: [ "poster1.png" ] } } %>
 
 
-      <%= render partial: "step", locals: { opt: { id: "step-4", x: "10000", y: "-3000", rotate_y: "90", scale: "3" } } %>
-
-
-      <%= render partial: "step", locals: { opt: { id: "step-5", x: "7000", y: "7000", rotate_y: "0", scale: "3", posters: [ "poster1.png" ] } } %>
-
-
-      <%= render partial: "step", locals: { opt: { id: "left", x: "-6000", scale: "3", posters: [ "poster2.png", nil ] } } %>
-
-      <%= render partial: "step", locals: { opt: { id: "left-2", x: "-6000", rotate_y: "-90", scale: "3" } } %>
-
+      <%= render partial: "step", locals: { opt: { id: "left", x: "-6000",                               scale: "3", posters: [ "poster1.png", nil ] } } %>
+      <%= render partial: "step", locals: { opt: { id: "left-2", x: "-6000",            rotate_y: "-90", scale: "3" } } %>
       <%= render partial: "step", locals: { opt: { id: "left-3", x: "-6000", y: "6000", rotate_y: "-90", scale: "3" } } %>
+      <%= render partial: "step", locals: { opt: { id: "left-4", x: "-6000", y: "6000", rotate_y: "0",   scale: "3" } } %>
+      <%= render partial: "step", locals: { opt: { id: "left-5", x: "-2000", y: "6000", rotate_y: "0",   scale: "3", posters: [ "poster1.png", "poster1.png" ] } } %>
 
 
-      <%= render partial: "step", locals: { opt: { id: "left-4", x: "-6000", y: "6000", rotate_y: "0", scale: "3" } } %>
-
-      <%= render partial: "step", locals: { opt: { id: "left-5", x: "-2000", y: "6000", rotate_y: "0", scale: "3", posters: [ "poster1.png", "poster3.png" ] } } %>
-
-
-      <%= render partial: "step", locals: { opt: { id: "up", y: "-12000", scale: "3", posters: [ "poster1.png", nil ] } } %>
-
-      <%= render partial: "step", locals: { opt: { id: "up-2", y: "-15000", rotate_y: "90", scale: "2" } } %>
-
-      <%= render partial: "step", locals: { opt: { id: "up-3", y: "-18000", x: "-4000", rotate_y: "180", scale: "1" } } %>
-
-      <%= render partial: "step", locals: { opt: { id: "up-4", y: "-18000", x: "-7000", rotate_y: "180", scale: "2" } } %>
-
-
-      <%= render partial: "step", locals: { opt: { id: "up-5", y: "-15000", x: "-7000", rotate_y: "180", scale: "2" } } %>
-
-      <%= render partial: "step", locals: { opt: { id: "up-6", y: "-15000", x: "-4000", rotate_y: "90", scale: "2" } } %>
-
-      <%= render partial: "step", locals: { opt: { id: "up-7", y: "-12000", x: "-4000", scale: "3" } } %>
+      <%= render partial: "step", locals: { opt: { id: "up", y: "-12000", scale: "3",                     posters: [ "poster1.png", nil ] } } %>
+      <%= render partial: "step", locals: { opt: { id: "up-2", y: "-15000", rotate_y: "90",               scale: "2" } } %>
+      <%= render partial: "step", locals: { opt: { id: "up-3", y: "-18000", x: "-4000", rotate_y: "180",  scale: "1" } } %>
+      <%= render partial: "step", locals: { opt: { id: "up-4", y: "-18000", x: "-7000", rotate_y: "180",  scale: "2" } } %>
+      <%= render partial: "step", locals: { opt: { id: "up-5", y: "-15000", x: "-7000", rotate_y: "180",  scale: "2" } } %>
+      <%= render partial: "step", locals: { opt: { id: "up-6", y: "-15000", x: "-4000", rotate_y: "90",   scale: "2" } } %>
+      <%= render partial: "step", locals: { opt: { id: "up-7", y: "-12000", x: "-4000",                   scale: "3" } } %>
 
 
 
