@@ -40,20 +40,20 @@
 
         </div>
 
-      <%= render partial: "step", locals: { opt: { id: "step-2", x: "10000", y: "0", z: "0", rotate: "0",         scale: "3", posters: ["poster1.png", "poster1.png"] } } %>
+      <%= render partial: "step", locals: { opt: { id: "step-2", x: "10000", y: "0", z: "0", rotate: "0",         scale: "3", posters: ["poster1.png", "poster3.png"] } } %>
       <%= render partial: "step", locals: { opt: { id: "step-3", x: "10000", y: "0", rotate: "0", rotate_y: "90", scale: "3" } } %>
       <%= render partial: "step", locals: { opt: { id: "step-4", x: "10000", y: "-3000",     rotate_y: "90",      scale: "3" } } %>
-      <%= render partial: "step", locals: { opt: { id: "step-5", x: "7000", y: "7000",       rotate_y: "0",       scale: "3", posters: [ "poster1.png" ] } } %>
+      <%= render partial: "step", locals: { opt: { id: "step-5", x: "7000", y: "7000",       rotate_y: "0",       scale: "3", posters: [ "poster2.png" ] } } %>
 
 
-      <%= render partial: "step", locals: { opt: { id: "left", x: "-6000",                               scale: "3", posters: [ "poster1.png", nil ] } } %>
+      <%= render partial: "step", locals: { opt: { id: "left", x: "-6000",                               scale: "3", posters: [ "poster3.png", nil ] } } %>
       <%= render partial: "step", locals: { opt: { id: "left-2", x: "-6000",            rotate_y: "-90", scale: "3" } } %>
       <%= render partial: "step", locals: { opt: { id: "left-3", x: "-6000", y: "6000", rotate_y: "-90", scale: "3" } } %>
       <%= render partial: "step", locals: { opt: { id: "left-4", x: "-6000", y: "6000", rotate_y: "0",   scale: "3" } } %>
-      <%= render partial: "step", locals: { opt: { id: "left-5", x: "-2000", y: "6000", rotate_y: "0",   scale: "3", posters: [ "poster1.png", "poster1.png" ] } } %>
+      <%= render partial: "step", locals: { opt: { id: "left-5", x: "-2000", y: "6000", rotate_y: "0",   scale: "3", posters: [ "poster2.png", "poster1.png" ] } } %>
 
 
-      <%= render partial: "step", locals: { opt: { id: "up", y: "-12000", scale: "3",                     posters: [ "poster1.png", nil ] } } %>
+      <%= render partial: "step", locals: { opt: { id: "up", y: "-12000", scale: "3",                     posters: [ "poster3.png", nil ] } } %>
       <%= render partial: "step", locals: { opt: { id: "up-2", y: "-15000", rotate_y: "90",               scale: "2" } } %>
       <%= render partial: "step", locals: { opt: { id: "up-3", y: "-18000", x: "-4000", rotate_y: "180",  scale: "1" } } %>
       <%= render partial: "step", locals: { opt: { id: "up-4", y: "-18000", x: "-7000", rotate_y: "180",  scale: "2" } } %>
@@ -71,11 +71,11 @@
     <script>
       window.jQuery || document.write('<script src="js/libs/jquery-1.7.1.min.js"><\/script>')
       </script>
-      <script>
-        var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']]; // Change UA-XXXXX-X to be your site's ID
-        (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
-          g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-          s.parentNode.insertBefore(g,s)}(document,'script'));
-      </script>
+      <!-- <script> -->
+      <!--   var _gaq=[['_setAccount','UA&#45;XXXXX&#45;X'],['_trackPageview']]; // Change UA&#45;XXXXX&#45;X to be your site's ID -->
+      <!--   (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1; -->
+      <!--     g.src=('https:'==location.protocol?'//ssl':'//www')+'.google&#45;analytics.com/ga.js'; -->
+      <!--     s.parentNode.insertBefore(g,s)}(document,'script')); -->
+      <!-- </script> -->
     </body>
   </html>
